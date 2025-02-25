@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cut Primus</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ar.js"></script>
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="login-page" class="centered">
+        <h1>Cut Primus</h1>
+        <p>Enter the password to access the site:</p>
+        <input type="password" id="password-input" placeholder="Password">
+        <button id="login-btn">Login</button>
+        <p id="error-msg" class="hidden">Incorrect password. Please try again.</p>
+    </div>
+
+    <!-- Main Website -->
+    <div id="main-site" class="hidden">
+        <!-- Home Page -->
+        <header class="home-header">
+            <h1>Cut Primus</h1>
+            <p>Find Your Perfect Hairstyle in Seconds.</p>
+            <div class="buttons">
+                <button id="barbot-btn">BarBot</button>
+                <button id="find-my-cut-btn">Find My Cut</button>
+            </div>
+        </header>
+
+        <!-- Chatbot Modal -->
+        <div id="barbot-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>BarBot: Your Virtual Barber</h2>
+                <p>Type your question below:</p>
+                <input type="text" id="barbot-input" placeholder="Ask me anything...">
+                <button id="barbot-send">Send</button>
+                <div id="barbot-response"></div>
+            </div>
+        </div>
+
+        <!-- Face Analysis Page -->
+        <section id="face-analysis" class="hidden">
+            <h2>Step 1: Analyze Your Face</h2>
+            <p>Follow these instructions to capture the best video of your face:</p>
+            <ol>
+                <li>Ensure good lighting.</li>
+                <li>Stand in front of a plain background.</li>
+                <li>Move your head slowly from side to side.</li>
+            </ol>
+            <button id="start-camera-btn">Start Camera</button>
+            <video id="camera-stream" autoplay playsinline style="max-width: 100%;"></video>
+            <button id="analyze-face-btn" class="hidden">Analyze Face</button>
+        </section>
+
+        <!-- Results Page -->
+        <section id="results-page" class="hidden">
+            <h2>Your Analysis Results</h2>
+            <p><strong>Face Shape:</strong> <span id="face-shape">Oval</span></p>
+            <p><strong>Hair Type:</strong> <span id="hair-type">Wavy</span></p>
+            <p><strong>Face Length:</strong> <span id="face-length">Medium</span></p>
+
+            <h3>Recommended Hairstyles</h3>
+            <div id="hairstyles-container">
+                <img src="hairstyle1.jpg" alt="Hairstyle 1" class="hairstyle" data-style="style1">
+                <img src="hairstyle2.jpg" alt="Hairstyle 2" class="hairstyle" data-style="style2">
+                <img src="hairstyle3.jpg" alt="Hairstyle 3" class="hairstyle" data-style="style3">
+            </div>
+
+            <button id="try-on-btn">Try On Selected Style</button>
+        </section>
+
+        <!-- AR Try-On Section -->
+        <section id="ar-try-on" class="hidden">
+            <a-scene embedded arjs>
+                <a-assets>
+                    <img id="user-face" src="user-face.jpg">
+                    <a-asset-item id="hairstyle-model" src="hairstyle.gltf"></a-asset-item>
+                </a-assets>
+                <a-image src="#user-face" position="0 1.6 -3" rotation="0 0 0"></a-image>
+                <a-entity id="virtual-hairstyle" gltf-model="#hairstyle-model" position="0 1.8 -3" scale="0.5 0.5 0.5" rotation="0 0 0"></a-entity>
+                <a-camera></a-camera>
+            </a-scene>
+        </section>
+
+        <!-- Styling Instructions Page -->
+        <section id="styling-instructions" class="hidden">
+            <h2>How to Achieve Your Chosen Hairstyle</h2>
+            <div id="instructions-container">
+                <button id="hair-routine-btn">Hair Routine</button>
+                <button id="beard-routine-btn">Beard Routine</button>
+                <div id="routine-window" class="hidden">
+                    <h3>L'Oréal Product Recommendations</h3>
+                    <ul id="product-list"></ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

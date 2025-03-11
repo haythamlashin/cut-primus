@@ -3,8 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #FFFFFF; /* White background */
-    color: #010045;
+    background-color: #000000
+    color: #d6b70c;
 }
 
 /* Centered Content (e.g., Login Page) */
@@ -27,8 +27,8 @@ body {
 
 #login-page button {
     padding: 10px 20px;
-    background-color: #010045;
-    color: #010045;
+    background-color: #000000;
+    color: #d6b70c;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -36,8 +36,8 @@ body {
 }
 
 #login-page button:hover {
-    background-color: #010045; /* Dark navy blue on hover */
-    color: white; /* White text on hover */
+    background-color: #d6b70c; /* Golden on hover */
+    color: black; /* Black text on hover */
 }
 
 .hidden {
@@ -53,8 +53,8 @@ body {
 .home-header {
     text-align: center;
     padding: 50px 20px;
-    background-color: #010045;
-    color: white; /* White text */
+    background-color: #000000;
+    color: Gold; /* Gold text */
     animation: fadeIn 2s ease-in-out; /* Smooth fade-in effect */
 }
 
@@ -74,13 +74,13 @@ body {
 }
 
 #barbot-btn {
-    background-color: #eeecf1;
-    color: #010045;
+    background-color: #000000;
+    color: #d6b70c;
 }
 
 #find-my-cut-btn {
-    background-color: #eeecf1;
-    color: #010045;
+    background-color: #000000;
+    color: #d6b70c;
 }
 
 /* Modal Styles */
